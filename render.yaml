@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: gayatri-enterprise
+    env: static
+    buildCommand: echo "No build required"
+    staticPublishPath: ./
