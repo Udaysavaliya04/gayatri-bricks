@@ -23,14 +23,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
-  // Close custom dropdown on outside click
+  // Close custom dropdown & mobile menu on outside click
   document.addEventListener('click', (e) => {
     const dropdown = document.getElementById('thicknessDropdown');
     if (dropdown && !dropdown.contains(e.target)) {
       dropdown.classList.remove('open');
     }
+
+    const navLinks = document.getElementById('navLinks');
+    const navToggle = document.getElementById('mobileNavToggle');
+    if (navLinks && navLinks.classList.contains('open')) {
+      if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+        closeMobileNav();
+      }
+    }
   });
 });
+
+/* Mobile Navigation Handlers */
+function toggleMobileNav() {
+  const navLinks = document.getElementById('navLinks');
+  const menuIcon = document.getElementById('menuIcon');
+  if (!navLinks) return;
+  
+  const isOpen = navLinks.classList.toggle('open');
+  if (menuIcon) {
+    menuIcon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+    lucide.createIcons();
+  }
+}
+
+function closeMobileNav() {
+  const navLinks = document.getElementById('navLinks');
+  const menuIcon = document.getElementById('menuIcon');
+  if (navLinks && navLinks.classList.contains('open')) {
+    navLinks.classList.remove('open');
+    if (menuIcon) {
+      menuIcon.setAttribute('data-lucide', 'menu');
+      lucide.createIcons();
+    }
+  }
+}
 
 /* Custom Dropdown Handlers */
 function toggleThicknessDropdown() {
