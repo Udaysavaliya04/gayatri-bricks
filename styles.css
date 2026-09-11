@@ -479,212 +479,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.6;
 }
 
-/* Calculator Box */
-.calc-container {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
-  padding: 48px;
-}
 
-.calc-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 24px;
-}
-
-.input-label {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  display: flex;
-  justify-content: space-between;
-}
-
-.input-range {
-  width: 100%;
-  accent-color: var(--accent-emerald);
-  cursor: pointer;
-}
-
-/* Custom Modern Dropdown Menu Component */
-.custom-dropdown {
-  position: relative;
-  width: 100%;
-}
-
-.custom-dropdown-trigger {
-  width: 100%;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  padding: 16px 20px;
-  border-radius: var(--radius-md);
-  color: var(--text-primary);
-  font-family: var(--font-heading);
-  font-size: 15px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  outline: none;
-  transition: all var(--duration-normal) var(--ease-out);
-}
-
-.custom-dropdown-trigger:hover, .custom-dropdown.open .custom-dropdown-trigger {
-  border-color: var(--accent-emerald);
-  background: var(--bg-surface-elevated);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-.trigger-content {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.trigger-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  background: var(--accent-emerald-light);
-  color: var(--accent-emerald);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dropdown-arrow {
-  transition: transform var(--duration-normal) var(--ease-out);
-  color: var(--text-muted);
-}
-
-.custom-dropdown.open .dropdown-arrow {
-  transform: rotate(180deg);
-  color: var(--accent-emerald);
-}
-
-.custom-dropdown-menu {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  right: 0;
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-md);
-  padding: 8px;
-  z-index: 100;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: all var(--duration-normal) var(--ease-out);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
-}
-
-.custom-dropdown.open .custom-dropdown-menu {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.custom-dropdown-item {
-  padding: 14px 16px;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: background var(--duration-normal);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 4px;
-}
-
-.custom-dropdown-item:last-child {
-  margin-bottom: 0;
-}
-
-.custom-dropdown-item:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.custom-dropdown-item.active {
-  background: var(--accent-emerald-light);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-}
-
-.item-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.item-title {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--text-primary);
-}
-
-.custom-dropdown-item.active .item-title {
-  color: var(--accent-emerald);
-}
-
-.item-desc {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.input-select, .input-text {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  padding: 14px 18px;
-  border-radius: var(--radius-md);
-  color: var(--text-primary);
-  font-size: 15px;
-  outline: none;
-  font-family: var(--font-body);
-  transition: border-color var(--duration-normal);
-}
-
-.input-select:focus, .input-text:focus {
-  border-color: var(--accent-emerald);
-}
-
-.calc-summary {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.calc-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.calc-row-val {
-  font-family: var(--font-heading);
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--text-primary);
-}
-
-.calc-row-val.emerald {
-  color: var(--accent-emerald);
-}
 
 /* Flagship Product Feature Card */
 .feature-showcase-grid {
@@ -1190,72 +985,14 @@ button, a, input, select {
   }
 
   .comparison-grid, 
-  .calc-grid, 
   .feature-showcase-grid,
   .maps-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
-  /* Mobile Navigation Drawer */
-  .mobile-nav-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: all 0.3s var(--ease-out);
-  }
-
-  .mobile-nav-toggle:hover {
-    border-color: var(--accent-emerald);
-    background: rgba(255, 255, 255, 0.12);
-  }
-
   .nav-links {
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
-    right: 0;
-    background: rgba(18, 20, 26, 0.96);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-xl);
-    padding: 16px 20px;
-    flex-direction: column;
-    gap: 8px;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
-  }
-
-  .nav-links.open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
-  .nav-link {
-    display: block;
-    padding: 12px 16px;
-    border-radius: var(--radius-sm);
-    font-size: 15px;
-    font-weight: 600;
-    width: 100%;
-    text-align: left;
-  }
-
-  .nav-link:hover {
-    background: rgba(255, 255, 255, 0.06);
-    color: var(--accent-emerald);
+    display: none;
   }
 }
 
@@ -1359,31 +1096,8 @@ button, a, input, select {
     border-radius: 8px;
   }
 
-  .nav-call-text {
-    display: none;
-  }
-
-  .nav-call-btn {
-    padding: 10px;
-    font-size: 13px;
-    border-radius: 8px;
-  }
-
   .card {
     padding: 20px;
-  }
-
-  .calc-container {
-    padding: 18px;
-    border-radius: var(--radius-lg);
-  }
-
-  .calc-summary {
-    padding: 20px;
-  }
-
-  .calc-row-val {
-    font-size: 18px;
   }
 
   .btn {

@@ -19,20 +19,16 @@
     </a>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="#comparison" class="nav-link" onclick="closeMobileNav()">Comparison</a></li>
-      <li><a href="#advantages" class="nav-link" onclick="closeMobileNav()">Advantages</a></li>
-      <li><a href="#calculator" class="nav-link" onclick="closeMobileNav()">Calculator</a></li>
-      <li><a href="#specifications" class="nav-link" onclick="closeMobileNav()">Specifications</a></li>
-      <li><a href="#quality" class="nav-link" onclick="closeMobileNav()">Quality Testing</a></li>
+      <li><a href="#comparison" class="nav-link">Comparison</a></li>
+      <li><a href="#advantages" class="nav-link">Advantages</a></li>
+      <li><a href="#specifications" class="nav-link">Specifications</a></li>
+      <li><a href="#quality" class="nav-link">Quality Testing</a></li>
     </ul>
 
     <div class="nav-actions">
       <a href="tel:+919067828575" class="btn btn-emerald nav-call-btn">
         <i data-lucide="phone-call"></i> <span class="nav-call-text">+91 90678 28575</span>
       </a>
-      <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" onclick="toggleMobileNav()">
-        <i data-lucide="menu" id="menuIcon"></i>
-      </button>
     </div>
   </nav>
 
@@ -53,9 +49,6 @@
         <div class="hero-actions">
           <a href="tel:+919067828575" class="btn btn-emerald">
             <i data-lucide="phone-call"></i> Call +91 90678 28575
-          </a>
-          <a href="#calculator" class="btn btn-secondary">
-            <i data-lucide="calculator"></i> Brick Calculator
           </a>
         </div>
       </div>
@@ -134,7 +127,7 @@
         <div class="card comparison-card" data-animate>
           <div>
             <span class="comparison-badge old">Traditional Material</span>
-            <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 20px;">Fired Red Clay Bricks</h3>
+            <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 20px;">Red Clay Bricks</h3>
 
             <ul class="comparison-list">
               <li class="comparison-item">
@@ -217,98 +210,6 @@
     </div>
   </section>
 
-  <!-- Brick Calculator Section -->
-  <section class="section" id="calculator">
-    <div class="container">
-      <div class="section-header" data-animate>
-        <div class="section-tag">Estimator Tool</div>
-        <h2 class="section-title">Brick & Cost Calculator</h2>
-        <p class="section-desc">Estimate required brick volume and mortar savings for your construction project in real time.</p>
-      </div>
-
-      <div class="calc-container" data-animate>
-        <div class="calc-grid">
-          <div>
-            <div class="input-group">
-              <label class="input-label">
-                <span>Wall Length (Feet)</span>
-                <strong id="lenVal">50 ft</strong>
-              </label>
-              <input type="range" min="10" max="500" value="50" class="input-range" id="wallLength" oninput="updateCalculator()">
-            </div>
-
-            <div class="input-group">
-              <label class="input-label">
-                <span>Wall Height (Feet)</span>
-                <strong id="heightVal">10 ft</strong>
-              </label>
-              <input type="range" min="4" max="50" value="10" class="input-range" id="wallHeight" oninput="updateCalculator()">
-            </div>
-
-            <!-- Custom Modern Wall Thickness Dropdown -->
-            <div class="input-group">
-              <label class="input-label">Wall Thickness</label>
-              <div class="custom-dropdown" id="thicknessDropdown">
-                <button type="button" class="custom-dropdown-trigger" onclick="toggleThicknessDropdown()">
-                  <div class="trigger-content">
-                    <div class="trigger-icon"><i data-lucide="layers"></i></div>
-                    <span id="selectedThicknessText">9-Inch Main External Wall</span>
-                  </div>
-                  <i data-lucide="chevron-down" class="dropdown-arrow"></i>
-                </button>
-
-                <div class="custom-dropdown-menu" id="thicknessMenu">
-                  <div class="custom-dropdown-item active" id="opt9" onclick="chooseThickness(9, '9-Inch Main External Wall')">
-                    <div class="item-info">
-                      <span class="item-title">9-Inch Main External Wall</span>
-                      <span class="item-desc">9 Bricks / sq.ft — Load-bearing exterior masonry</span>
-                    </div>
-                  </div>
-
-                  <div class="custom-dropdown-item" id="opt4" onclick="chooseThickness(4.5, '4.5-Inch Internal Partition Wall')">
-                    <div class="item-info">
-                      <span class="item-title">4.5-Inch Internal Partition Wall</span>
-                      <span class="item-desc">4.5 Bricks / sq.ft — Half-brick partition divider</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="calc-summary">
-            <div>
-              <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px;">Project Calculation Summary</div>
-
-              <div class="calc-row">
-                <span style="color: var(--text-secondary);">Total Surface Area</span>
-                <span class="calc-row-val" id="resArea">500 sq.ft</span>
-              </div>
-
-              <div class="calc-row">
-                <span style="color: var(--text-secondary);">Required Bricks (230×110×75mm)</span>
-                <span class="calc-row-val emerald" id="resBricks">4,500 Units</span>
-              </div>
-
-              <div class="calc-row">
-                <span style="color: var(--text-secondary);">Mortar Saved</span>
-                <span class="calc-row-val" id="resMortar" style="color: #38bdf8;">14 Bags</span>
-              </div>
-
-              <div class="calc-row">
-                <span style="color: var(--text-secondary);">Estimated Net Cost Savings</span>
-                <span class="calc-row-val emerald" id="resSavings">₹ 18,500</span>
-              </div>
-            </div>
-
-            <a href="tel:+919067828575" class="btn btn-emerald" style="width: 100%; margin-top: 24px;">
-              <i data-lucide="phone-call"></i> Call to Place Order: +91 90678 28575
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Product Specifications Section -->
   <section class="section" id="specifications">
@@ -396,12 +297,12 @@
     <div class="container">
       <div class="stats-row">
         <div class="stat-block">
-          <div class="stat-block-num">500<span>+</span></div>
+          <div class="stat-block-num">400<span>+</span></div>
           <div class="stat-block-lbl">Projects Supplied</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-block">
-          <div class="stat-block-num">50,000</div>
+          <div class="stat-block-num">20,000</div>
           <div class="stat-block-lbl">Bricks / Day Capacity</div>
         </div>
         <div class="stat-divider"></div>
@@ -411,7 +312,7 @@
         </div>
         <div class="stat-divider"></div>
         <div class="stat-block">
-          <div class="stat-block-num">10<span>+ yrs</span></div>
+          <div class="stat-block-num">18<span>+ yrs</span></div>
           <div class="stat-block-lbl">Industry Experience</div>
         </div>
       </div>
@@ -433,8 +334,8 @@
           <div class="testimonial-author">
             <div class="testimonial-avatar">RS</div>
             <div>
-              <div class="testimonial-name">Ramesh Shah</div>
-              <div class="testimonial-role">Civil Contractor, Ahmedabad</div>
+              <div class="testimonial-name">Kirti Infrastructure</div>
+              <div class="testimonial-role">Real Estate Developer, Ahmedabad</div>
             </div>
           </div>
         </div>
@@ -444,8 +345,8 @@
           <div class="testimonial-author">
             <div class="testimonial-avatar">MP</div>
             <div>
-              <div class="testimonial-name">Mahesh Patel</div>
-              <div class="testimonial-role">Project Developer, Gandhinagar</div>
+              <div class="testimonial-name">Kashtabhanjan Developers</div>
+              <div class="testimonial-role">Real Estate Developer, Ahmedabad</div>
             </div>
           </div>
         </div>
@@ -455,8 +356,8 @@
           <div class="testimonial-author">
             <div class="testimonial-avatar">KD</div>
             <div>
-              <div class="testimonial-name">Kiran Desai</div>
-              <div class="testimonial-role">Site Engineer, Naroda</div>
+              <div class="testimonial-name">Kiran Patel</div>
+            <div class="testimonial-role">Architect, Ahmedabad</div>
             </div>
           </div>
         </div>
@@ -513,12 +414,13 @@
               <h3 class="map-card-title">Plant — Undrel</h3>
               <p class="map-card-addr">B-8, Gopal Charan Arena, Undrel-Dhamatvan Road, Undrel, Ahmedabad.</p>
             </div>
-            <a href="https://maps.google.com/?q=B-8+Gopal+Charan+Arena+Undrel+Ahmedabad" target="_blank" class="btn btn-secondary" style="font-size: 13px; padding: 10px 16px; white-space: nowrap; flex-shrink:0;">
+            <a href="https://maps.app.goo.gl/zesW4mWYxW6w17TS8" target="_blank" class="btn btn-secondary" style="font-size: 13px; padding: 10px 16px; white-space: nowrap; flex-shrink:0;">
               <i data-lucide="navigation"></i> Open Maps
             </a>
           </div>
           <div class="map-frame">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9!2d72.59!3d23.01!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b4ef22b69a7%3A0x6eb4fc6b9740f259!2sUndrel%2C%20Ahmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4396.038197458293!2d72.74959967591082!3d22.960190118652207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x634af9372bd3e0d9%3A0x1b5d6a521caccef9!2sGayatri%20Bricks!5e1!3m2!1sen!2sin!4v1789123094472!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
         </div>
         <div class="map-card">
@@ -528,12 +430,13 @@
               <h3 class="map-card-title">Plant — Vastral</h3>
               <p class="map-card-addr">Gayatri Bricks, Opp. Madhav Farm, Vastral, Ahmedabad.</p>
             </div>
-            <a href="https://maps.google.com/?q=Vastral+Ahmedabad" target="_blank" class="btn btn-secondary" style="font-size: 13px; padding: 10px 16px; white-space: nowrap; flex-shrink:0;">
+            <a href="https://maps.app.goo.gl/F5rj3Ve1jGXH5Af28" target="_blank" class="btn btn-secondary" style="font-size: 13px; padding: 10px 16px; white-space: nowrap; flex-shrink:0;">
               <i data-lucide="navigation"></i> Open Maps
             </a>
           </div>
           <div class="map-frame">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.5!2d72.66!3d23.03!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e870f0cfb0051%3A0x37b1af46a869c0ef!2sVastral%2C%20Ahmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d488.2527894665516!2d72.67196618224908!3d23.007397163106457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e87de73381373%3A0x5917a84906107f58!2sGayatri%20Enterprise%20Fly%20Ash%20Bricks!5e1!3m2!1sen!2sin!4v1789123249464!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
         </div>
       </div>
