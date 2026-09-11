@@ -1,40 +1,47 @@
 /* ==========================================================================
-   Gayatri Enterprise — Application Motion & Interactions
+   Gayatri Enterprise — Motion & Apple-Style Scroll System
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Scroll Reveal Observer
+  // Initialize Apple-Style Blur Reveal Animations & Grid Staggering
   initScrollAnimations();
 
-  // Dynamic Navbar Scroll Background
+  // Dynamic Navbar Glass Elevation
   const navbar = document.getElementById('navbar');
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 40) {
-        navbar.style.background = 'rgba(18, 20, 26, 0.95)';
-        navbar.style.boxShadow = '0 12px 32px rgba(0, 0, 0, 0.6)';
+        navbar.classList.add('scrolled');
       } else {
-        navbar.style.background = 'rgba(18, 20, 26, 0.85)';
-        navbar.style.boxShadow = 'none';
+        navbar.classList.remove('scrolled');
       }
-    });
+    }, { passive: true });
   }
 });
 
-/* IntersectionObserver for Smooth Scroll Animations */
+/* Apple-Style Blur Reveal & Staggered Scroll Animations */
 function initScrollAnimations() {
   const animatedElements = document.querySelectorAll('[data-animate]');
-  
+
+  // Auto-add staggered transition delays for grid cards
+  const gridContainers = document.querySelectorAll('.advantages-grid, .testimonials-grid, .comparison-grid, .maps-grid, .gallery-grid, .hero-stats-bar');
+  gridContainers.forEach(container => {
+    const children = container.children;
+    Array.from(children).forEach((child, idx) => {
+      child.style.transitionDelay = `${idx * 0.08}s`;
+    });
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animated');
-        observer.unobserve(entry.target); // Trigger once
+        observer.unobserve(entry.target); // Trigger once cleanly
       }
     });
   }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
   });
 
   animatedElements.forEach(el => observer.observe(el));
@@ -47,7 +54,7 @@ function toggleFaq(item) {
   document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
   // Re-open clicked item if it was closed
   if (!isOpen) item.classList.add('open');
-  // Re-render icons after state change
+  // Re-render lucide icons after state change
   if (window.lucide) {
     lucide.createIcons();
   }
