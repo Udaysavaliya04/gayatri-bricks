@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: gayatri-enterprise
+    name: gayatri-bricks
     env: static
     buildCommand: echo "No build required"
     staticPublishPath: ./
