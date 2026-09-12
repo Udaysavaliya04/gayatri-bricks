@@ -1728,3 +1728,28 @@ button, a, input, select {
     will-change: auto !important;
   }
 }
+
+
+/* Red Clay Card Value Text Accent (Only Values in Red) */
+.red-clay-card {
+  border-color: rgba(239, 68, 68, 0.25) !important;
+  background: rgba(239, 68, 68, 0.02) !important;
+}
+
+.red-clay-card h3 {
+  color: var(--text-primary) !important;
+}
+
+.red-clay-card .comparison-key {
+  color: var(--text-secondary) !important;
+}
+
+.red-clay-card .comparison-value {
+  color: #ef4444 !important;
+}
+
+.red-clay-card .comparison-badge.old {
+  color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.12) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
