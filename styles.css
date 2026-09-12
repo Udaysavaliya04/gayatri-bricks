@@ -33,11 +33,11 @@
   --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   
   /* Apple Squircle Continuous Curvature Radii */
-  --radius-xs: 10px;
-  --radius-sm: 14px;
-  --radius-md: 20px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
 }
 
 /* Reset & Global Base */
@@ -232,7 +232,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   gap: 10px;
   padding: 14px 28px;
-  border-radius: 18px;
+  border-radius: 16px;
   font-family: var(--font-heading);
   font-size: 15px;
   font-weight: 700;
@@ -1168,14 +1168,14 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   z-index: 900;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), inset 0 1.5px 1px rgba(255, 255, 255, 0.3), inset 0 -3px 6px rgba(0, 0, 0, 0.5);
   transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out);
   text-decoration: none;
 }
 
 .whatsapp-float:hover {
   transform: scale(1.1) translateY(-3px);
-  box-shadow: 0 16px 36px rgba(37, 211, 102, 0.5);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7), inset 0 1.5px 1.5px rgba(255, 255, 255, 0.4), inset 0 -3px 6px rgba(0, 0, 0, 0.6);
 }
 
 /* Footer Classes */
