@@ -1211,7 +1211,7 @@ button, a, input, select {
 
 /* Mobile Logo Sizing */
 .nav-logo-img {
-  height: 32px !important;
+  height: 36px !important;
 }
 
   .container {
@@ -1297,7 +1297,7 @@ button, a, input, select {
 
   /* Smartphone Logo Sizing */
   .nav-logo-img {
-    height: 26px !important;
+    height: 32px !important;
   }
 
   .navbar {
