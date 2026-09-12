@@ -1719,3 +1719,12 @@ button, a, input, select {
     gap: 24px;
   }
 }
+
+
+/* Disable parallax transform for Hero image on mobile only */
+@media (max-width: 768px) {
+  .hero-visual-img {
+    transform: none !important;
+    will-change: auto !important;
+  }
+}

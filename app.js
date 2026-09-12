@@ -91,7 +91,13 @@ function initParallax() {
   function updateParallax() {
     const windowHeight = window.innerHeight;
 
+    const isMobile = window.innerWidth <= 768;
     parallaxTargets.forEach(img => {
+      // Disable parallax transform for Hero image on mobile only
+      if (img.classList.contains('hero-visual-img') && isMobile) {
+        img.style.transform = 'none';
+        return;
+      }
       const container = img.closest('.hero-visual-frame, .gallery-slot, .feature-visual-frame, .about-visual-card') || img.parentElement || img;
       const rect = container.getBoundingClientRect();
 
