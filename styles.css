@@ -73,7 +73,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--text-primary);
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
   font-weight: 700;
 }
 
@@ -302,7 +302,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-emerald:hover,
 .btn-primary:hover {
   transform: translateY(-2px);
-  background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);
+  background: linear-gradient(180deg, #fbb024 0%, #d97706 100%);
   border-color: rgba(255, 255, 255, 0.4);
   box-shadow: 
     0 14px 30px rgba(0, 0, 0, 0.7),
