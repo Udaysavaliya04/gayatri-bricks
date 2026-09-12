@@ -14,6 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Apple-Style Blur Reveal Animations & Grid Staggering
   initScrollAnimations();
 
+  // Initialize Mobile Hamburger Menu Drawer Toggle
+  initMobileMenu();
+
+
   // Initialize Trendy Scroll Counter Animation
   initCounterAnimations();
 
@@ -205,4 +209,40 @@ function animateCounter(el) {
   }
 
   requestAnimationFrame(update);
+}
+
+
+/* Mobile Hamburger Menu Drawer Toggle */
+function initMobileMenu() {
+  const toggleBtn = document.getElementById('mobileNavToggle');
+  const drawer = document.getElementById('mobileNavDrawer');
+  if (!toggleBtn || !drawer) return;
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = toggleBtn.classList.contains('open');
+    if (isOpen) {
+      toggleBtn.classList.remove('open');
+      drawer.classList.remove('open');
+    } else {
+      toggleBtn.classList.add('open');
+      drawer.classList.add('open');
+    }
+  });
+
+  // Close drawer when clicking any link
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      toggleBtn.classList.remove('open');
+      drawer.classList.remove('open');
+    });
+  });
+
+  // Close drawer when clicking outside
+  document.addEventListener('click', (e) => {
+    if (drawer.classList.contains('open') && !drawer.contains(e.target) && !toggleBtn.contains(e.target)) {
+      toggleBtn.classList.remove('open');
+      drawer.classList.remove('open');
+    }
+  });
 }
