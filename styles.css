@@ -1208,6 +1208,12 @@ button, a, input, select {
 
 /* Mobile Devices (< 768px) */
 @media (max-width: 768px) {
+
+/* Mobile Logo Sizing */
+.nav-logo-img {
+  height: 32px !important;
+}
+
   .container {
     padding: 0 16px;
   }
@@ -1288,6 +1294,12 @@ button, a, input, select {
 
 /* Small Smartphone Devices (< 480px) */
 @media (max-width: 480px) {
+
+  /* Smartphone Logo Sizing */
+  .nav-logo-img {
+    height: 26px !important;
+  }
+
   .navbar {
     width: calc(100% - 20px);
     padding: 10px 14px;
