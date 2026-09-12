@@ -24,7 +24,7 @@ function initScrollAnimations() {
   const animatedElements = document.querySelectorAll('[data-animate]');
 
   // Auto-add staggered transition delays for grid cards
-  const gridContainers = document.querySelectorAll('.advantages-grid, .testimonials-grid, .comparison-grid, .maps-grid, .gallery-grid, .hero-stats-bar');
+  const gridContainers = document.querySelectorAll('.about-facts-grid, .why-grid, .advantages-grid, .applications-grid, .testimonials-grid, .comparison-grid, .maps-grid, .gallery-grid, .hero-stats-bar');
   gridContainers.forEach(container => {
     const children = container.children;
     Array.from(children).forEach((child, idx) => {
