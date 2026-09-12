@@ -6,24 +6,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Core Palette (Solid, High-Contrast Matte Aesthetics) */
-  --bg-main: #0a0b0e;
-  --bg-surface: #12141a;
-  --bg-surface-elevated: #1a1c24;
-  --bg-card: #14161f;
-  --bg-card-hover: #1c1e2a;
+  /* Matte Dark Architectural Gold/Amber Palette */
+  --bg-main: #0d0f14;
+  --bg-surface: #141720;
+  --bg-surface-elevated: #1a1e2b;
+  --bg-card: #151821;
+  --bg-card-hover: #1e2230;
   
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
-  --border-accent: #10b981;
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --border-accent: #d97706;
   
   --text-primary: #ffffff;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
   
-  --accent-emerald: #10b981;
-  --accent-emerald-hover: #059669;
-  --accent-emerald-light: rgba(16, 185, 129, 0.12);
+  --accent-amber: #d97706;
+  --accent-amber-hover: #b45309;
+  --accent-amber-light: rgba(217, 119, 6, 0.14);
+  --accent-emerald: #d97706;
+  --accent-emerald-hover: #b45309;
+  --accent-emerald-light: rgba(217, 119, 6, 0.14);
   
   /* Typography Stack */
   --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -31,17 +34,10 @@
   
   /* Apple Squircle Continuous Curvature Radii */
   --radius-xs: 10px;
-  --radius-sm: 16px;
-  --radius-md: 22px;
-  --radius-lg: 28px;
-  --radius-xl: 36px;
-  --radius-2xl: 44px;
-  --radius-full: 9999px;
-  
-  /* Motion & Easing */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --duration-normal: 0.3s;
-  --duration-slow: 0.6s;
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
 }
 
 /* Reset & Global Base */
@@ -104,9 +100,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-tag:hover {
   transform: translateY(-2px);
-  border-color: rgba(16, 185, 129, 0.4);
+  border-color: rgba(217, 119, 6, 0.4);
   background: rgba(24, 27, 38, 0.9);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25), 0 8px 20px rgba(0, 0, 0, 0.45), 0 0 20px rgba(16, 185, 129, 0.15);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25), 0 8px 20px rgba(0, 0, 0, 0.45), 0 0 20px rgba(217, 119, 6, 0.15);
 }
 
 .section-tag-dot {
@@ -187,11 +183,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-highlight {
-  border-color: rgba(16, 185, 129, 0.3);
+  border-color: rgba(217, 119, 6, 0.4);
 }
 
 .card-highlight:hover {
-  border-color: var(--accent-emerald);
+  border-color: #d97706;
 }
 
 /* Tactile Modern Buttons */
@@ -229,14 +225,42 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-emerald {
-  background: var(--accent-emerald);
-  color: #000000;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, #d97706, #b45309);
+  color: #ffffff !important;
+  font-weight: 700;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.35);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-emerald::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #f59e0b, #d97706);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-emerald:hover::before {
+  opacity: 1;
 }
 
 .btn-emerald:hover {
-  background: var(--accent-emerald-hover);
-  color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(217, 119, 6, 0.55);
+}
+
+.btn-emerald:active {
+  transform: translateY(0) scale(0.97);
 }
 
 .btn-secondary {
@@ -462,7 +486,7 @@ h1, h2, h3, h4, h5, h6 {
 .comparison-badge.win {
   background: var(--accent-emerald-light);
   color: var(--accent-emerald);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  border: 1px solid rgba(217, 119, 6, 0.3);
 }
 
 .comparison-badge.old {
@@ -544,7 +568,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 40px;
   border-radius: var(--radius-xs);
   background: var(--accent-emerald-light);
-  border: 1px solid rgba(16, 185, 129, 0.35);
+  border: 1px solid rgba(217, 119, 6, 0.35);
   color: var(--accent-emerald);
   display: flex;
   align-items: center;
@@ -583,8 +607,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .card:hover .icon-badge-inner {
   transform: rotate(14deg) scale(1.12);
-  background: rgba(16, 185, 129, 0.22);
-  box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.4), 0 0 24px rgba(16, 185, 129, 0.25);
+  background: rgba(217, 119, 6, 0.22);
+  box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.4), 0 0 24px rgba(217, 119, 6, 0.25);
 }
 
 .card:hover .icon-badge-inner svg {
@@ -817,7 +841,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 44px;
   border-radius: 50%;
   background: var(--accent-emerald-light);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  border: 1px solid rgba(217, 119, 6, 0.3);
   color: var(--accent-emerald);
   display: flex;
   align-items: center;
@@ -1021,11 +1045,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .faq-item.open {
-  border-color: rgba(16, 185, 129, 0.45);
+  border-color: rgba(217, 119, 6, 0.45);
   background: rgba(22, 25, 34, 0.92);
   box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
               0 24px 50px rgba(0, 0, 0, 0.6),
-              0 0 30px rgba(16, 185, 129, 0.12);
+              0 0 30px rgba(217, 119, 6, 0.12);
 }
 
 .faq-question {
@@ -1067,9 +1091,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .faq-item.open .faq-icon-badge {
   transform: rotate(180deg) scale(1.08);
-  background: rgba(16, 185, 129, 0.2);
-  border-color: rgba(16, 185, 129, 0.4);
-  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.3), 0 0 16px rgba(16, 185, 129, 0.25);
+  background: rgba(217, 119, 6, 0.2);
+  border-color: rgba(217, 119, 6, 0.4);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.3), 0 0 16px rgba(217, 119, 6, 0.25);
 }
 
 /* Modern CSS Grid Height Animation */
@@ -1666,7 +1690,7 @@ button, a, input, select {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, #d97706, #b45309);
   color: #ffffff;
   font-family: var(--font-heading);
   font-weight: 900;
@@ -1675,7 +1699,7 @@ button, a, input, select {
   align-items: center;
   justify-content: center;
   z-index: 10;
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 30px rgba(217, 119, 6, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
   border: 3px solid var(--bg-main);
 }
 
@@ -1707,10 +1731,10 @@ button, a, input, select {
   font-size: 13px;
   font-weight: 700;
   color: var(--accent-emerald);
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(217, 119, 6, 0.1);
   padding: 8px 16px;
   border-radius: 30px;
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  border: 1px solid rgba(217, 119, 6, 0.25);
 }
 
 @media (max-width: 992px) {
@@ -1752,4 +1776,56 @@ button, a, input, select {
   color: #ef4444 !important;
   background: rgba(239, 68, 68, 0.12) !important;
   border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+
+/* Warm Amber Gold Accents (Zero Green Remaining) */
+.emerald,
+.stat-val.emerald,
+.about-fact-val.emerald,
+.stat-block-num span {
+  color: #f59e0b !important;
+}
+
+.section-tag-dot,
+.icon-badge-dot {
+  background: #d97706 !important;
+  box-shadow: 0 0 10px #d97706 !important;
+}
+
+.icon-badge-inner {
+  background: rgba(217, 119, 6, 0.14) !important;
+  border-color: rgba(217, 119, 6, 0.35) !important;
+  color: #f59e0b !important;
+}
+
+.faq-icon-badge {
+  color: #f59e0b !important;
+}
+
+.faq-item.open {
+  border-color: rgba(217, 119, 6, 0.45) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25), 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(217, 119, 6, 0.15) !important;
+}
+
+.faq-item.open .faq-icon-badge {
+  background: rgba(217, 119, 6, 0.2) !important;
+  border-color: rgba(217, 119, 6, 0.4) !important;
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.3), 0 0 16px rgba(217, 119, 6, 0.25) !important;
+}
+
+.testimonial-avatar {
+  background: rgba(217, 119, 6, 0.14) !important;
+  border-color: rgba(217, 119, 6, 0.3) !important;
+  color: #f59e0b !important;
+}
+
+.map-card-num {
+  color: #d97706 !important;
+}
+
+.comparison-badge.win {
+  background: rgba(217, 119, 6, 0.14) !important;
+  color: #f59e0b !important;
+  border-color: rgba(217, 119, 6, 0.3) !important;
 }
