@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-header {
   text-align: center;
   max-width: 720px;
-  margin: 0 auto 64px auto;
+  margin: 0 auto 36px auto;
 }
 
 .section-title {
@@ -400,7 +400,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero {
-  padding-top: 180px;
+  padding-top: 190px;
   padding-bottom: 100px;
   text-align: center;
   position: relative;
@@ -510,7 +510,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Section Container */
 .section {
-  padding: 110px 0;
+  padding: 64px 0;
   position: relative;
 }
 
@@ -1222,7 +1222,7 @@ button, a, input, select {
 /* Tablet & Laptop (< 992px) */
 @media (max-width: 992px) {
   .hero {
-    padding-top: 130px;
+    padding-top: 190px;
     padding-bottom: 60px;
   }
   
