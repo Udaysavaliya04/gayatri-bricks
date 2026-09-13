@@ -343,6 +343,8 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: navbarSlideDown 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
 }
 
 .navbar.scrolled {
@@ -1858,4 +1860,17 @@ button, a, input, select {
 .btn:focus, .btn:focus-visible {
   outline: none !important;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) !important;
+}
+
+
+/* Floating Navbar Slide Down Entrance Animation on Page Reload/Load */
+@keyframes navbarSlideDown {
+  0% {
+    transform: translate(-50%, -120px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
 }
