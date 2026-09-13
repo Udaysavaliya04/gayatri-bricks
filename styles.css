@@ -1874,3 +1874,26 @@ button, a, input, select {
     opacity: 1;
   }
 }
+
+
+/* Mobile Responsive Hero Top Padding (Fixes Large Void on Mobile) */
+.hero-section {
+  padding-top: 180px;
+  padding-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .hero-section {
+    padding-top: 115px !important;
+    padding-bottom: 32px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero,
+  .hero-section {
+    padding-top: 105px !important;
+    padding-bottom: 24px !important;
+  }
+}
