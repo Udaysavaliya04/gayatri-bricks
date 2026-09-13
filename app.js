@@ -218,37 +218,93 @@ function animateCounter(el) {
 }
 
 
-/* Mobile Hamburger Menu Drawer Toggle */
+/* Mobile Hamburger Menu & High-Agency Animated Sheet Drawer Controller */
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobileNavToggle');
   const drawer = document.getElementById('mobileNavDrawer');
   if (!toggleBtn || !drawer) return;
 
+  let isAnimating = false;
+
+  function openMenu() {
+    if (isAnimating || drawer.classList.contains('open')) return;
+    isAnimating = true;
+
+    drawer.classList.remove('closing');
+    toggleBtn.classList.add('open');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    drawer.classList.add('open');
+    document.body.classList.add('menu-open');
+
+    setTimeout(() => {
+      isAnimating = false;
+    }, 550);
+  }
+
+  function closeMenu(callback) {
+    if (isAnimating || !drawer.classList.contains('open')) return;
+    isAnimating = true;
+
+    toggleBtn.classList.remove('open');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    drawer.classList.add('closing');
+    document.body.classList.remove('menu-open');
+
+    setTimeout(() => {
+      drawer.classList.remove('open', 'closing');
+      isAnimating = false;
+      if (typeof callback === 'function') callback();
+    }, 400);
+  }
+
+  function toggleMenu() {
+    if (drawer.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  // Click event listener
   toggleBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    const isOpen = toggleBtn.classList.contains('open');
-    if (isOpen) {
-      toggleBtn.classList.remove('open');
-      drawer.classList.remove('open');
-    } else {
-      toggleBtn.classList.add('open');
-      drawer.classList.add('open');
+    toggleMenu();
+  });
+
+  // Keyboard accessibility (Enter / Space)
+  toggleBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleMenu();
     }
   });
 
-  // Close drawer when clicking any link
+  // Escape key closes menu
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+
+  // Smooth close on link click before navigation
   drawer.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      toggleBtn.classList.remove('open');
-      drawer.classList.remove('open');
+    link.addEventListener('click', (e) => {
+      const targetHref = link.getAttribute('href');
+      if (targetHref && targetHref !== '#') {
+        e.preventDefault();
+        closeMenu(() => {
+          window.location.href = targetHref;
+        });
+      } else {
+        closeMenu();
+      }
     });
   });
 
-  // Close drawer when clicking outside
+  // Close when clicking outside drawer content
   document.addEventListener('click', (e) => {
     if (drawer.classList.contains('open') && !drawer.contains(e.target) && !toggleBtn.contains(e.target)) {
-      toggleBtn.classList.remove('open');
-      drawer.classList.remove('open');
+      closeMenu();
     }
   });
 }
